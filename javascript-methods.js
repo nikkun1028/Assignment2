@@ -23,9 +23,18 @@ Array.prototype.myMap = function(callbackFn) {
 
 
 // FILTER //
+// filter an array with a given callbackFn //
 Array.prototype.myFilter = function(callbackFn) {
-  // Place your code here.
+  let new_array = [];
+  for(let i = 0; i < this.length; i++){
+  	if(callbackFn(this[i], i , this)){
+  		new_array.push(this[i]);
+  	}
+  }
+  return new_array;
 };
+
+
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
@@ -73,7 +82,8 @@ Object.myValues = function(object) {
 
 
 // TESTINGs BELOW //
-let array = [1,2,3,4,5];
+const array = [1,2,3,4,5];
+const words = ["apple", "cat", "puzzle", "watermelon"];
 
 console.log("\n===================================");
 console.log("Starting tests...");
@@ -82,9 +92,9 @@ console.log ("\nArray.map(): ", array.map(x=>x+2));
 console.log("Array.myMap(): ", array.myMap(x=>x+2));
 console.log("Original Array: ", array);
 
-
-
-
+console.log("\nArray.filter(): ", words.filter(word=>word.length<4));
+console.log("Array.myFilter(): ", words.myFilter(word=>word.length<4));
+console.log("Original Array:", words);
 
 
 
