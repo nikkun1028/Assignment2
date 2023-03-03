@@ -50,9 +50,17 @@ Array.prototype.mySome = function(callbackFn) {
 
 
 // EVERY //
+// true if every elements of array apply for callbackFn //
 Array.prototype.myEvery = function(callbackFn) {
-  // Place your code here.
+	let new_array = [];
+	for(let i = 0; i < this.length; i++){
+		if(!callbackFn(this[i], i, this)) return false;
+	}
+	return true;
 };
+
+
+
 
 // REDUCE //
 Array.prototype.myReduce = function(callbackFn) {
@@ -106,6 +114,10 @@ console.log("Original Array: ", words);
 
 console.log("\nArray.some(): ", array.some(x=>x>4));
 console.log("Array.mySome(): ", array.mySome(x=>x>4));
+console.log("Original Array: ", array);
+
+console.log("\nArray.every(): ", array.every(x=>x>10));
+console.log("Array.myEvery(): ", array.myEvery(x=>x>10));
 console.log("Original Array: ", array);
 
 
