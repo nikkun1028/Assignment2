@@ -134,9 +134,19 @@ Array.prototype.myLastIndexOf = function(searchElement) {
 
 
 // KEYS //
+// returns an array of object's key names //
 Object.myKeys = function(object) {
-  // Place your code here.
+	let keys = [];
+	const entries = Object.entries(object);
+	for(let i = 0; i < entries.length; i++){
+		keys.push(entries[i][0]);
+	}
+	
+	return keys;
 };
+
+
+
 
 // VALUES //
 Object.myValues = function(object) {
@@ -153,6 +163,15 @@ const array = [1,2,3,4,5];
 const words = ["apple", "cat", "puzzle", "watermelon"];
 const myList1 = [1,1,4,10,11,21,3,10];
 const myList2 = ["apple", "orange", "banana", "apple", "water"];
+const object = {
+	a: "something",
+	b: "is",
+	c: "wrong",
+	d: "with",
+	e: 3
+};
+const empty = {};
+
 
 console.log("\n===================================");
 console.log("Starting tests...");
@@ -189,6 +208,8 @@ console.log("\nArray.lastIndexOf(): ", myList2.lastIndexOf("apple"));
 console.log("Array.myLastIndexf(): ", myList2.myLastIndexOf("apple"));
 console.log("Original Array: ", myList2);
 
-
+console.log("\nObject.keys(Array): ", Object.keys(object));
+console.log("Object.myKeys(Array): ", Object.myKeys(object));
+console.log("Original Array: ", object);
 
 
