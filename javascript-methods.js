@@ -109,9 +109,16 @@ Array.prototype.myIncludes = function(searchElement) {
 
 
 // INDEXOF //
+// return index of element if exist, return -1 otherwise //
 Array.prototype.myIndexOf = function(searchElement) {
-  // Place your code here.
+	for(let i = 0; i < this.length; i++){
+		if(this[i] == searchElement) return i;
+	}
+	return -1;
 };
+
+
+
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(searchElement) {
@@ -135,7 +142,7 @@ Object.myValues = function(object) {
 
 // TESTINGs BELOW //
 const array = [1,2,3,4,5];
-const words = [, "cat", "puzzle", "watermelon"];
+const words = ["apple", "cat", "puzzle", "watermelon"];
 
 console.log("\n===================================");
 console.log("Starting tests...");
@@ -163,6 +170,10 @@ console.log("Original Array: ", words);
 console.log("\nArray.includes(): ", array.includes(5));
 console.log("Array.myIncludes(): ", array.myIncludes(5));
 console.log("Original Array: ", array);
+
+console.log("\nArray.indexOf(): ", words.indexOf("apple"));
+console.log("Array.myIndexOf(): ", words.myIndexOf("apple"));
+console.log("Original Array: ", words);
 
 
 
