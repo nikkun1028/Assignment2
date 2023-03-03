@@ -121,9 +121,17 @@ Array.prototype.myIndexOf = function(searchElement) {
 
 
 // LASTINDEXOF //
+// return index of last encountered element, -1 otherwise //
 Array.prototype.myLastIndexOf = function(searchElement) {
-  // Place your code here.
+	let index = -1;
+	for(let i = 0; i < this.length; i++){
+		if(this[i] == searchElement) index = i;
+	}
+	return index;
 };
+
+
+
 
 // KEYS //
 Object.myKeys = function(object) {
@@ -143,6 +151,8 @@ Object.myValues = function(object) {
 // TESTINGs BELOW //
 const array = [1,2,3,4,5];
 const words = ["apple", "cat", "puzzle", "watermelon"];
+const myList1 = [1,1,4,10,11,21,3,10];
+const myList2 = ["apple", "orange", "banana", "apple", "water"];
 
 console.log("\n===================================");
 console.log("Starting tests...");
@@ -175,6 +185,9 @@ console.log("\nArray.indexOf(): ", words.indexOf("apple"));
 console.log("Array.myIndexOf(): ", words.myIndexOf("apple"));
 console.log("Original Array: ", words);
 
+console.log("\nArray.lastIndexOf(): ", myList2.lastIndexOf("apple"));
+console.log("Array.myLastIndexf(): ", myList2.myLastIndexOf("apple"));
+console.log("Original Array: ", myList2);
 
 
 
