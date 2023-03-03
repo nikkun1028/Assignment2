@@ -27,7 +27,7 @@ Array.prototype.myMap = function(callbackFn) {
 Array.prototype.myFilter = function(callbackFn) {
   let new_array = [];
   for(let i = 0; i < this.length; i++){
-  	if(callbackFn(this[i], i , this)){
+  	if(callbackFn(this[i], i, this)){
   		new_array.push(this[i]);
   	}
   }
@@ -37,9 +37,17 @@ Array.prototype.myFilter = function(callbackFn) {
 
 
 // SOME //
+// true if one or more elements apply for callbackFn  //
 Array.prototype.mySome = function(callbackFn) {
-  // Place your code here.
+	let new_array = [];
+	for(let i = 0; i < this.length; i++){
+		if(callbackFn(this[i], i, this)) return true;
+	}
+	return false;
 };
+
+
+
 
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
@@ -94,7 +102,10 @@ console.log("Original Array: ", array);
 
 console.log("\nArray.filter(): ", words.filter(word=>word.length<4));
 console.log("Array.myFilter(): ", words.myFilter(word=>word.length<4));
-console.log("Original Array:", words);
+console.log("Original Array: ", words);
 
+console.log("\nArray.some(): ", array.some(x=>x>4));
+console.log("Array.mySome(): ", array.mySome(x=>x>4));
+console.log("Original Array: ", array);
 
 
