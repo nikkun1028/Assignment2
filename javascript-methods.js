@@ -27,6 +27,7 @@ Array.prototype.myMap = function(callbackFn) {
 Array.prototype.myFilter = function(callbackFn) {
   let new_array = [];
   for(let i = 0; i < this.length; i++){
+  	if(this[i] === undefined) continue; // skip if empty
   	if(callbackFn(this[i], i, this)){
   		new_array.push(this[i]);
   	}
@@ -63,9 +64,37 @@ Array.prototype.myEvery = function(callbackFn) {
 
 
 // REDUCE //
+// reduce an array into one element using callbackFn //
 Array.prototype.myReduce = function(callbackFn) {
-  // Place your code here.
+	if(this.length < 1){
+		console.log("ERROR: can't have empty array for reduce...");
+		return undefined;
+	}
+	
+	let isString = false;
+	for(let i = 0; i < this.length; i++){
+		if(typeof this[i] === "string"){
+			isString = true;
+			break;
+		}
+	}
+	
+	if(isString){
+		var reduced = "";
+	}
+	else{
+		var reduced = 0;
+	}
+		
+	for(let i = 0; i < this.length; i++){
+		if(this[i] === undefined) continue;
+		reduced = callbackFn(reduced, this[i], this);
+	}
+	return reduced;
 };
+
+
+
 
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement) {
@@ -119,5 +148,14 @@ console.log("Original Array: ", array);
 console.log("\nArray.every(): ", array.every(x=>x>10));
 console.log("Array.myEvery(): ", array.myEvery(x=>x>10));
 console.log("Original Array: ", array);
+
+console.log("\nArray.reduce(): ", words.reduce((a,b)=>a+b));
+console.log("Array.myReduce(): ", words.myReduce((a,b)=>a+b));
+console.log("Original Array: ", words);
+
+
+
+
+
 
 
