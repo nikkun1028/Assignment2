@@ -97,9 +97,16 @@ Array.prototype.myReduce = function(callbackFn) {
 
 
 // INCLUDES //
+// determine whether an array includes an element //
 Array.prototype.myIncludes = function(searchElement) {
-  // Place your code here.
+	for(let i = 0; i < this.length; i++){
+		if(this[i] == searchElement) return true;
+	}
+	return false;
 };
+
+
+
 
 // INDEXOF //
 Array.prototype.myIndexOf = function(searchElement) {
@@ -128,7 +135,7 @@ Object.myValues = function(object) {
 
 // TESTINGs BELOW //
 const array = [1,2,3,4,5];
-const words = ["apple", "cat", "puzzle", "watermelon"];
+const words = [, "cat", "puzzle", "watermelon"];
 
 console.log("\n===================================");
 console.log("Starting tests...");
@@ -153,7 +160,9 @@ console.log("\nArray.reduce(): ", words.reduce((a,b)=>a+b));
 console.log("Array.myReduce(): ", words.myReduce((a,b)=>a+b));
 console.log("Original Array: ", words);
 
-
+console.log("\nArray.includes(): ", array.includes(5));
+console.log("Array.myIncludes(): ", array.myIncludes(5));
+console.log("Original Array: ", array);
 
 
 
