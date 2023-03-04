@@ -167,6 +167,7 @@ Object.myValues = function(object) {
 
 
 // TESTINGs BELOW //
+/*
 const array = [1,2,3,4,5];
 const words = ["apple", "cat", "puzzle", "watermelon"];
 const myList1 = [1,1,4,10,11,21,3,10];
@@ -222,4 +223,4 @@ console.log("Original Object: ", object);
 console.log("\nObject.values(Object): ", Object.values(object));
 console.log("Object.myValues(Object): ", Object.myValues(object));
 console.log("Original Object: ", object);
-
+*/
