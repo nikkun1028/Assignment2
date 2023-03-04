@@ -149,9 +149,17 @@ Object.myKeys = function(object) {
 
 
 // VALUES //
+// return all the values from object //
 Object.myValues = function(object) {
-  // Place your code here.
+	let values = [];
+	const entries = Object.entries(object);
+	for(let i = 0; i < entries.length; i++){
+		values.push(entries[i][1]);
+	}
+	
+	return values;
 };
+
 
 
 
@@ -165,10 +173,9 @@ const myList1 = [1,1,4,10,11,21,3,10];
 const myList2 = ["apple", "orange", "banana", "apple", "water"];
 const object = {
 	a: "something",
-	b: "is",
-	c: "wrong",
-	d: "with",
-	e: 3
+	b: ["is", "wrong"],
+	c: "with",
+	d: 3,
 };
 const empty = {};
 
@@ -208,8 +215,11 @@ console.log("\nArray.lastIndexOf(): ", myList2.lastIndexOf("apple"));
 console.log("Array.myLastIndexf(): ", myList2.myLastIndexOf("apple"));
 console.log("Original Array: ", myList2);
 
-console.log("\nObject.keys(Array): ", Object.keys(object));
-console.log("Object.myKeys(Array): ", Object.myKeys(object));
-console.log("Original Array: ", object);
+console.log("\nObject.keys(Object): ", Object.keys(object));
+console.log("Object.myKeys(Object): ", Object.myKeys(object));
+console.log("Original Object: ", object);
 
+console.log("\nObject.values(Object): ", Object.values(object));
+console.log("Object.myValues(Object): ", Object.myValues(object));
+console.log("Original Object: ", object);
 
